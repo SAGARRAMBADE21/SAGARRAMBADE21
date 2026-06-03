@@ -115,23 +115,23 @@
 
     <!-- ===== content ===== -->
 
-    <!-- spider emblem (original, bold silhouette) -->
-    <circle cx="108" cy="86" r="60" fill="url(#redBright)" opacity="0.45"/>
-    <g transform="translate(108,84)" stroke="#FF2A33" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="#FF2A33">
-      <!-- legs (right) -->
-      <path fill="none" d="M5,-12 C22,-28 40,-30 52,-40"/>
-      <path fill="none" d="M6,-6 C26,-16 46,-14 60,-18"/>
-      <path fill="none" d="M6,1 C28,3 48,7 60,3"/>
-      <path fill="none" d="M6,7 C26,17 42,27 50,40"/>
-      <!-- legs (left) -->
-      <path fill="none" d="M-5,-12 C-22,-28 -40,-30 -52,-40"/>
-      <path fill="none" d="M-6,-6 C-26,-16 -46,-14 -60,-18"/>
-      <path fill="none" d="M-6,1 C-28,3 -48,7 -60,3"/>
-      <path fill="none" d="M-6,7 C-26,17 -42,27 -50,40"/>
-      <!-- abdomen (teardrop) -->
-      <path stroke="none" d="M0,-3 C12,-3 13,12 9,26 C6,37 2,44 0,46 C-2,44 -6,37 -9,26 C-13,12 -12,-3 0,-3 Z"/>
+    <!-- spider emblem (original, sharp tapered silhouette) -->
+    <circle cx="120" cy="92" r="72" fill="url(#redBright)" opacity="0.45"/>
+    <g transform="translate(120,90)" fill="#FF2A33" stroke="none">
+      <!-- legs (right) — long, angular, pointed -->
+      <path d="M5,-13 Q30,-42 60,-52 Q42,-26 11,-6 Z"/>
+      <path d="M6,-6 Q40,-22 72,-24 Q46,-8 12,1 Z"/>
+      <path d="M6,1 Q42,4 72,16 Q46,16 12,8 Z"/>
+      <path d="M6,8 Q34,30 56,52 Q42,26 11,15 Z"/>
+      <!-- legs (left, mirrored) -->
+      <path d="M-5,-13 Q-30,-42 -60,-52 Q-42,-26 -11,-6 Z"/>
+      <path d="M-6,-6 Q-40,-22 -72,-24 Q-46,-8 -12,1 Z"/>
+      <path d="M-6,1 Q-42,4 -72,16 Q-46,16 -12,8 Z"/>
+      <path d="M-6,8 Q-34,30 -56,52 Q-42,26 -11,15 Z"/>
+      <!-- abdomen (elongated, pointed) -->
+      <path d="M0,-2 C13,-2 15,14 10,30 C7,42 2,50 0,52 C-2,50 -7,42 -10,30 C-15,14 -13,-2 0,-2 Z"/>
       <!-- cephalothorax -->
-      <ellipse stroke="none" cx="0" cy="-9" rx="7.5" ry="9.5"/>
+      <ellipse cx="0" cy="-9" rx="8" ry="10"/>
     </g>
 
     <!-- headline -->
