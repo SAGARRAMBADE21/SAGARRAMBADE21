@@ -19,13 +19,11 @@
 
 ## 🧠 About
 
-Full-stack **AI developer** building **XO** — a self-hosted, local-first ecosystem for running and orchestrating **AI agent teams** on top of **OpenClaw**. I work end-to-end: real-time agent gateways, multi-channel assistants, and the dashboards, APIs, and desktop apps around them.
-
-> *"The model reasons; the Gateway routes, gates, and isolates."*
+AI Research Intern at XO, working on agent harnesses: the control loop, tool routing, context management, and sandboxed environments that make an agent reliable in production. I build the backend behind it (Composio for integrations, Playwright for browser automation, SendGrid for delivery) and run agents in isolated sandboxes with Coder. I've worked hands-on with runtimes like OpenClaw and Hermes, and building at a startup showed me how agents behave outside a demo. I care most about harness design and what makes an agent genuinely autonomous.
 
 ---
 
-## 🛰️ What I'm building
+## 🛰️ What I work on
 
 **OpenClaw — a self-hosted AI assistant gateway**
 A single local daemon that owns every channel connection and turns any model into an always-on assistant — **23+ channels** (WhatsApp, Telegram, Slack, Discord, Signal, iMessage…), **35+ model providers**, tool sandboxing, identity-first security, and a file-based agent workspace (`SOUL.md` / `AGENTS.md` / `HEARTBEAT.md`).
@@ -58,12 +56,15 @@ A single local daemon that owns every channel connection and turns any model int
 
 ![FastAPI](https://img.shields.io/badge/FastAPI-0e0d0a?style=for-the-badge&logo=fastapi&logoColor=83d63a)
 ![Node.js](https://img.shields.io/badge/Node.js-0e0d0a?style=for-the-badge&logo=nodedotjs&logoColor=83d63a)
+![Playwright](https://img.shields.io/badge/Playwright-0e0d0a?style=for-the-badge&logo=playwright&logoColor=83d63a)
+![SendGrid](https://img.shields.io/badge/SendGrid-0e0d0a?style=for-the-badge&logo=sendgrid&logoColor=83d63a)
 
 **AI &amp; Agents**
 
 ![Anthropic Claude](https://img.shields.io/badge/Anthropic_Claude-0e0d0a?style=for-the-badge&logo=anthropic&logoColor=83d63a)
 ![OpenAI](https://img.shields.io/badge/OpenAI-0e0d0a?style=for-the-badge&logo=openai&logoColor=83d63a)
 ![Agno](https://img.shields.io/badge/Agno-0e0d0a?style=for-the-badge)
+![Composio](https://img.shields.io/badge/Composio-0e0d0a?style=for-the-badge&logo=composio&logoColor=83d63a)
 ![MCP](https://img.shields.io/badge/MCP-0e0d0a?style=for-the-badge&logo=modelcontextprotocol&logoColor=83d63a)
 
 **Data &amp; Infra**
@@ -75,6 +76,7 @@ A single local daemon that owns every channel connection and turns any model int
 ![Clerk](https://img.shields.io/badge/Clerk-0e0d0a?style=for-the-badge&logo=clerk&logoColor=83d63a)
 ![Redis](https://img.shields.io/badge/Redis-0e0d0a?style=for-the-badge&logo=redis&logoColor=83d63a)
 ![Vercel](https://img.shields.io/badge/Vercel-0e0d0a?style=for-the-badge&logo=vercel&logoColor=83d63a)
+![Coder](https://img.shields.io/badge/Coder-0e0d0a?style=for-the-badge&logo=coder&logoColor=83d63a)
 
 ---
 
