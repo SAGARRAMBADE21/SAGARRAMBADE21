@@ -27,43 +27,42 @@ AI Research Intern at XO, working on agent harnesses: the control loop, tool rou
 
 **Languages**
 
-![TypeScript](https://img.shields.io/badge/TypeScript-0e0d0a?style=for-the-badge&logo=typescript&logoColor=83d63a)
-![JavaScript](https://img.shields.io/badge/JavaScript-0e0d0a?style=for-the-badge&logo=javascript&logoColor=83d63a)
-![Python](https://img.shields.io/badge/Python-0e0d0a?style=for-the-badge&logo=python&logoColor=83d63a)
-![Rust](https://img.shields.io/badge/Rust-0e0d0a?style=for-the-badge&logo=rust&logoColor=83d63a)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 **Frontend**
 
-![Next.js](https://img.shields.io/badge/Next.js-0e0d0a?style=for-the-badge&logo=nextdotjs&logoColor=83d63a)
-![React](https://img.shields.io/badge/React-0e0d0a?style=for-the-badge&logo=react&logoColor=83d63a)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-0e0d0a?style=for-the-badge&logo=tailwindcss&logoColor=83d63a)
-![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-0e0d0a?style=for-the-badge&logo=shadcnui&logoColor=83d63a)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
 
-**Backend**
+**Backend & APIs**
 
-![FastAPI](https://img.shields.io/badge/FastAPI-0e0d0a?style=for-the-badge&logo=fastapi&logoColor=83d63a)
-![Node.js](https://img.shields.io/badge/Node.js-0e0d0a?style=for-the-badge&logo=nodedotjs&logoColor=83d63a)
-![Playwright](https://img.shields.io/badge/Playwright-0e0d0a?style=for-the-badge&logo=playwright&logoColor=83d63a)
-![SendGrid](https://img.shields.io/badge/SendGrid-0e0d0a?style=for-the-badge&logo=sendgrid&logoColor=83d63a)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 
-**AI &amp; Agents**
+**AI & Agents**
 
-![Anthropic Claude](https://img.shields.io/badge/Anthropic_Claude-0e0d0a?style=for-the-badge&logo=anthropic&logoColor=83d63a)
-![OpenAI](https://img.shields.io/badge/OpenAI-0e0d0a?style=for-the-badge&logo=openai&logoColor=83d63a)
-![Agno](https://img.shields.io/badge/Agno-0e0d0a?style=for-the-badge)
-![Composio](https://img.shields.io/badge/Composio-0e0d0a?style=for-the-badge&logo=composio&logoColor=83d63a)
-![MCP](https://img.shields.io/badge/MCP-0e0d0a?style=for-the-badge&logo=modelcontextprotocol&logoColor=83d63a)
+![Anthropic](https://img.shields.io/badge/Anthropic-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=for-the-badge&logo=langgraph&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP-000000?style=for-the-badge&logo=modelcontextprotocol&logoColor=white)
+![OpenClaw](https://img.shields.io/badge/OpenClaw-0E7C42?style=for-the-badge)
+![Hermes](https://img.shields.io/badge/Hermes-6E56CF?style=for-the-badge)
 
-**Data &amp; Infra**
+**Data & Infra**
 
-![Qdrant](https://img.shields.io/badge/Qdrant-0e0d0a?style=for-the-badge&logo=qdrant&logoColor=83d63a)
-![SQLite](https://img.shields.io/badge/SQLite-0e0d0a?style=for-the-badge&logo=sqlite&logoColor=83d63a)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0e0d0a?style=for-the-badge&logo=postgresql&logoColor=83d63a)
-![Tauri](https://img.shields.io/badge/Tauri-0e0d0a?style=for-the-badge&logo=tauri&logoColor=83d63a)
-![Clerk](https://img.shields.io/badge/Clerk-0e0d0a?style=for-the-badge&logo=clerk&logoColor=83d63a)
-![Redis](https://img.shields.io/badge/Redis-0e0d0a?style=for-the-badge&logo=redis&logoColor=83d63a)
-![Vercel](https://img.shields.io/badge/Vercel-0e0d0a?style=for-the-badge&logo=vercel&logoColor=83d63a)
-![Coder](https://img.shields.io/badge/Coder-0e0d0a?style=for-the-badge&logo=coder&logoColor=83d63a)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white)
+![rclone](https://img.shields.io/badge/rclone-3F77B8?style=for-the-badge&logo=rclone&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Coder](https://img.shields.io/badge/Coder-000000?style=for-the-badge&logo=coder&logoColor=white)
 
 ---
 
@@ -78,5 +77,5 @@ AI Research Intern at XO, working on agent harnesses: the control loop, tool rou
 ---
 
 <div align="center">
-<sub>Self-hosted · local-first · agentic — built in the open.</sub>
+<sub>Self-hosted · local-first · agentic · built in the open.</sub>
 </div>
