@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif" role="img" aria-label="Sagar Rambade, researching agent harnesses and agentic AI">
+  <defs>
+    <!-- red-tinted dark base -->
+    <radialGradient id="bg" cx="40%" cy="42%" r="85%">
+      <stop offset="0%" stop-color="#3a0810"/>
+      <stop offset="55%" stop-color="#19040a"/>
+      <stop offset="100%" stop-color="#08020a"/>
+    </radialGradient>
+
+    <!-- glow blobs (Spider-Man red + blue) -->
+    <radialGradient id="redA" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#DF1F2D" stop-opacity="0.85"/>
+      <stop offset="66%" stop-color="#DF1F2D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="redBright" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF3B3B" stop-opacity="0.80"/>
+      <stop offset="60%" stop-color="#FF3B3B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="redB" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B11313" stop-opacity="0.70"/>
+      <stop offset="72%" stop-color="#B11313" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#447BBE" stop-opacity="0.78"/>
+      <stop offset="70%" stop-color="#2B3784" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- soft blur to fuse the glows -->
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="46"/>
+    </filter>
+
+    <!-- subtle red-tinted film grain -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix"
+        values="0 0 0 0 0.55
+                0 0 0 0 0.20
+                0 0 0 0 0.22
+                0 0 0 0.5 0"/>
+    </filter>
+
+    <!-- comic Ben-Day dots -->
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+
+    <!-- edge vignette -->
+    <radialGradient id="vig" cx="50%" cy="42%" r="78%">
+      <stop offset="52%" stop-color="#08020a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#05010a" stop-opacity="0.92"/>
+    </radialGradient>
+
+    <!-- left shade so the headline stays legible -->
+    <linearGradient id="leftshade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#08020a" stop-opacity="0.86"/>
+      <stop offset="42%" stop-color="#08020a" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#08020a" stop-opacity="0"/>
+    </linearGradient>
+
+    <clipPath id="card">
+      <rect x="0" y="0" width="1280" height="420" rx="24"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <!-- background -->
+    <rect width="1280" height="420" fill="url(#bg)"/>
+
+    <!-- animated red + blue glow field -->
+    <g filter="url(#soft)">
+      <g>
+        <circle cx="470" cy="180" r="330" fill="url(#redA)"/>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 55 35; -30 60; 0 0" dur="15s" repeatCount="indefinite"/>
+      </g>
+      <g>
+        <circle cx="560" cy="210" r="190" fill="url(#redBright)"/>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 40 50; -35 -25; 0 0" dur="11s" repeatCount="indefinite"/>
+      </g>
+      <g>
+        <circle cx="1015" cy="285" r="330" fill="url(#blue)"/>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; -65 -45; 35 30; 0 0" dur="18s" repeatCount="indefinite"/>
+      </g>
+      <g>
+        <circle cx="1170" cy="390" r="300" fill="url(#redB)"/>
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; -45 35; 30 -45; 0 0" dur="20s" repeatCount="indefinite"/>
+      </g>
+    </g>
+
+    <!-- texture + depth -->
+    <rect width="1280" height="420" fill="url(#dots)"/>
+    <rect width="1280" height="420" filter="url(#grain)" opacity="0.10"/>
+    <rect width="1280" height="420" fill="url(#vig)"/>
+    <rect width="1280" height="420" fill="url(#leftshade)"/>
+
+    <!-- corner spider web (original geometry) -->
+    <g stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <!-- spokes radiating from the top-right corner -->
+      <line x1="1280" y1="0" x2="0"    y2="90"/>
+      <line x1="1280" y1="0" x2="120"  y2="430"/>
+      <line x1="1280" y1="0" x2="430"  y2="430"/>
+      <line x1="1280" y1="0" x2="760"  y2="430"/>
+      <line x1="1280" y1="0" x2="1080" y2="430"/>
+      <!-- web threads connecting the spokes -->
+      <polyline points="998,20 1025,95 1093,95 1166,95 1236,95"/>
+      <polyline points="704,40 758,194 898,194 1046,194 1190,194"/>
+      <polyline points="384,63 468,301 685,301 916,301 1140,301"/>
+    </g>
+    <!-- single bright "thwip" strand -->
+    <line x1="1280" y1="8" x2="470" y2="330" stroke="#ffffff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- ===== content ===== -->
+
+    <!-- headline -->
+    <text x="62" y="240" font-size="68" font-weight="800" fill="#f5f5f5" letter-spacing="-1.5">Sagar Rambade</text>
+
+    <!-- accent line (red + blue) -->
+    <text x="64" y="300" font-size="38" font-weight="700" fill="#f5f5f5" letter-spacing="-0.5">Researching <tspan fill="#FF4655">agent harnesses</tspan> &amp; <tspan fill="#5AA0FF">agentic AI</tspan></text>
+
+    <!-- subhead -->
+    <text x="64" y="344" font-size="18" font-weight="400" fill="#c2a9ac">Control loops, tool routing, and sandboxed environments for reliable agents.</text>
+
+    <!-- card border -->
+    <rect x="0.5" y="0.5" width="1279" height="419" rx="23.5" fill="none" stroke="#3a0f14" stroke-width="1"/>
+  </g>
+</svg>
