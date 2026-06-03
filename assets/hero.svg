@@ -115,20 +115,22 @@
 
     <!-- ===== content ===== -->
 
-    <!-- spider mark (original silhouette) -->
-    <g transform="translate(96,72)" stroke="#DF1F2D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-      <g fill="none">
-        <polyline points="-6,-8 -22,-16 -30,-4"/>
-        <polyline points="-6,-2 -25,-3 -33,6"/>
-        <polyline points="-6,3 -24,8 -30,18"/>
-        <polyline points="-5,8 -20,17 -25,28"/>
-        <polyline points="6,-8 22,-16 30,-4"/>
-        <polyline points="6,-2 25,-3 33,6"/>
-        <polyline points="6,3 24,8 30,18"/>
-        <polyline points="5,8 20,17 25,28"/>
-      </g>
-      <ellipse cx="0" cy="9"  rx="10.5" ry="15" fill="#0a0304"/>
-      <ellipse cx="0" cy="-9" rx="6.5"  ry="7.5" fill="#0a0304"/>
+    <!-- spider emblem (original, logo-style) -->
+    <circle cx="104" cy="82" r="56" fill="url(#redBright)" opacity="0.45"/>
+    <g transform="translate(104,82)" fill="none" stroke="#FF2A33" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- right legs -->
+      <path d="M5,-9 C20,-24 38,-22 47,-33"/>
+      <path d="M6,-3 C24,-11 42,-7 53,-13"/>
+      <path d="M6,4 C24,5 44,9 55,7"/>
+      <path d="M5,10 C22,18 38,24 47,33"/>
+      <!-- left legs (mirrored) -->
+      <path d="M-5,-9 C-20,-24 -38,-22 -47,-33"/>
+      <path d="M-6,-3 C-24,-11 -42,-7 -53,-13"/>
+      <path d="M-6,4 C-24,5 -44,9 -55,7"/>
+      <path d="M-5,10 C-22,18 -38,24 -47,33"/>
+      <!-- body -->
+      <ellipse cx="0" cy="11" rx="9.5" ry="15" fill="#FF2A33" stroke="#FF2A33"/>
+      <ellipse cx="0" cy="-9" rx="6.5" ry="8"  fill="#FF2A33" stroke="#FF2A33"/>
     </g>
 
     <!-- headline -->
