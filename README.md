@@ -55,9 +55,3 @@ AI Research Intern at XO, working on agent harnesses: the control loop, tool rou
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/your-handle)
 <!-- TODO: replace https://www.linkedin.com/in/your-handle with your real LinkedIn URL -->
 [![GitHub](https://img.shields.io/badge/GitHub-0e0d0a?style=for-the-badge&logo=github&logoColor=83d63a)](https://github.com/SAGARRAMBADE21)
-
----
-
-<div align="center">
-<sub>Self-hosted · local-first · agentic · built in the open.</sub>
-</div>
