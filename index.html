@@ -230,20 +230,22 @@
 /* =================== CONFIG (tune with ?sync=1) =================== */
 const CONFIG = {
   audio: 'assets/audio/song.mp3',
-  startAt: 10.6,     // seconds where "I found a love for me" begins (intro skipped)
-  endAt:   54.0,     // stop just after "...you're holding mine"
+  startAt: 0,        // play from the very start (the intro is only ~3s); set to 2.6 to begin right on line 1
+  endAt:   61.5,     // stop just after "...you're holding mine" (the chorus starts at 62.4)
   fadeMs:  2600,
+  offset:  0,        // global lyric nudge in seconds — tweak live with [ (earlier) and ] (later), or ?offset=
+  // studio-accurate times (from lrclib; this mp3's 263s duration matches the reference exactly)
   lyrics: [
-    { t: 11.0, text: 'I found a love for me' },
-    { t: 15.2, text: 'Darling, just dive right in and follow my lead' },
-    { t: 19.8, text: 'Well, I found a girl, beautiful and sweet' },
-    { t: 24.2, text: 'Oh, I never knew you were the someone waiting for me' },
-    { t: 31.0, text: '’Cause we were just kids when we fell in love' },
-    { t: 34.6, text: 'Not knowing what it was' },
-    { t: 38.2, text: 'I will not give you up this time' },
-    { t: 42.0, text: 'But darling, just kiss me slow,' },
-    { t: 45.8, text: 'Your heart is all I own' },
-    { t: 49.2, text: 'And in your eyes you’re holding mine' },
+    { t:  2.98, text: 'I found a love for me' },
+    { t: 10.36, text: 'Darling, just dive right in and follow my lead' },
+    { t: 17.69, text: 'Well, I found a girl, beautiful and sweet' },
+    { t: 25.37, text: 'Oh, I never knew you were the someone waiting for me' },
+    { t: 31.85, text: '’Cause we were just kids when we fell in love' },
+    { t: 36.78, text: 'Not knowing what it was' },
+    { t: 40.74, text: 'I will not give you up this time' },
+    { t: 48.12, text: 'But darling, just kiss me slow,' },
+    { t: 51.92, text: 'Your heart is all I own' },
+    { t: 55.78, text: 'And in your eyes you’re holding mine' },
   ],
 };
 
@@ -330,11 +332,11 @@ function beginSong(){
 }
 function loop(){
   raf=requestAnimationFrame(loop);
-  const t=audio.currentTime;
+  const ct=audio.currentTime, off=CONFIG.offset;
   let idx=-1;
-  for(let i=0;i<CONFIG.lyrics.length;i++){ if(t>=CONFIG.lyrics[i].t) idx=i; else break; }
+  for(let i=0;i<CONFIG.lyrics.length;i++){ if(ct>=CONFIG.lyrics[i].t+off) idx=i; else break; }
   if(idx!==lastIdx){ lastIdx=idx; showLyric(idx); }
-  if(!ending && t>=CONFIG.endAt){ ending=true; finale(); }
+  if(!ending && ct>=CONFIG.endAt+off){ ending=true; finale(); }
 }
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function showLyric(i){
@@ -373,6 +375,24 @@ startEl.addEventListener('click', startExperience);
 document.getElementById('btnReplay').addEventListener('click', ()=>{ reset(); startExperience(); });
 const btnMute=document.getElementById('btnMute');
 btnMute.addEventListener('click', ()=>{ muted=!muted; audio.muted=muted; btnMute.textContent=muted?'🔇':'🔊'; });
+
+/* live lyric-offset nudge (in case the lyrics drift a touch on your exact file) */
+const _q = new URLSearchParams(location.search);
+if(_q.has('offset')) CONFIG.offset = parseFloat(_q.get('offset')) || 0;
+const offReadout = document.createElement('div');
+offReadout.style.cssText = 'position:fixed;left:50%;bottom:6vh;transform:translateX(-50%);z-index:30;background:rgba(30,20,40,.82);color:#ffe;font:600 13px/1 Quicksand,sans-serif;padding:8px 14px;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none';
+document.body.appendChild(offReadout);
+let _offTimer=null;
+function showOffset(){
+  offReadout.textContent = 'lyric offset '+(CONFIG.offset>=0?'+':'')+CONFIG.offset.toFixed(1)+'s   ·   [ earlier   ] later';
+  offReadout.style.opacity='1'; clearTimeout(_offTimer); _offTimer=setTimeout(()=>offReadout.style.opacity='0', 1900);
+}
+if(!_q.has('sync')){
+  window.addEventListener('keydown',(e)=>{
+    if(e.key===']'){ CONFIG.offset=Math.round((CONFIG.offset+0.1)*10)/10; showOffset(); }
+    else if(e.key==='['){ CONFIG.offset=Math.round((CONFIG.offset-0.1)*10)/10; showOffset(); }
+  });
+}
 
 /* =================== static preview (?demo=1) =================== */
 if(new URLSearchParams(location.search).has('demo')){
