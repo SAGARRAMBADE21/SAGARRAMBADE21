@@ -7,12 +7,6 @@
 
 ![Sagar Rambade, AI Research Intern at XO](assets/xo-hero.svg)
 
-<br/>
-
-[![Building](https://img.shields.io/badge/Building-XO_·_OpenClaw-6bbe45?style=for-the-badge&labelColor=0e0d0a)](https://github.com/SAGARRAMBADE21)
-&nbsp;![Focus](https://img.shields.io/badge/Focus-Self--hosted_AI_Agents-0e0d0a?style=for-the-badge)
-&nbsp;![Open to](https://img.shields.io/badge/Open_to-Collaboration-0e0d0a?style=for-the-badge)
-
 </div>
 
 ---
