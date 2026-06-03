@@ -115,22 +115,23 @@
 
     <!-- ===== content ===== -->
 
-    <!-- spider emblem (original, logo-style) -->
-    <circle cx="104" cy="82" r="56" fill="url(#redBright)" opacity="0.45"/>
-    <g transform="translate(104,82)" fill="none" stroke="#FF2A33" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-      <!-- right legs -->
-      <path d="M5,-9 C20,-24 38,-22 47,-33"/>
-      <path d="M6,-3 C24,-11 42,-7 53,-13"/>
-      <path d="M6,4 C24,5 44,9 55,7"/>
-      <path d="M5,10 C22,18 38,24 47,33"/>
-      <!-- left legs (mirrored) -->
-      <path d="M-5,-9 C-20,-24 -38,-22 -47,-33"/>
-      <path d="M-6,-3 C-24,-11 -42,-7 -53,-13"/>
-      <path d="M-6,4 C-24,5 -44,9 -55,7"/>
-      <path d="M-5,10 C-22,18 -38,24 -47,33"/>
-      <!-- body -->
-      <ellipse cx="0" cy="11" rx="9.5" ry="15" fill="#FF2A33" stroke="#FF2A33"/>
-      <ellipse cx="0" cy="-9" rx="6.5" ry="8"  fill="#FF2A33" stroke="#FF2A33"/>
+    <!-- spider emblem (original, bold silhouette) -->
+    <circle cx="108" cy="86" r="60" fill="url(#redBright)" opacity="0.45"/>
+    <g transform="translate(108,84)" stroke="#FF2A33" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="#FF2A33">
+      <!-- legs (right) -->
+      <path fill="none" d="M5,-12 C22,-28 40,-30 52,-40"/>
+      <path fill="none" d="M6,-6 C26,-16 46,-14 60,-18"/>
+      <path fill="none" d="M6,1 C28,3 48,7 60,3"/>
+      <path fill="none" d="M6,7 C26,17 42,27 50,40"/>
+      <!-- legs (left) -->
+      <path fill="none" d="M-5,-12 C-22,-28 -40,-30 -52,-40"/>
+      <path fill="none" d="M-6,-6 C-26,-16 -46,-14 -60,-18"/>
+      <path fill="none" d="M-6,1 C-28,3 -48,7 -60,3"/>
+      <path fill="none" d="M-6,7 C-26,17 -42,27 -50,40"/>
+      <!-- abdomen (teardrop) -->
+      <path stroke="none" d="M0,-3 C12,-3 13,12 9,26 C6,37 2,44 0,46 C-2,44 -6,37 -9,26 C-13,12 -12,-3 0,-3 Z"/>
+      <!-- cephalothorax -->
+      <ellipse stroke="none" cx="0" cy="-9" rx="7.5" ry="9.5"/>
     </g>
 
     <!-- headline -->
