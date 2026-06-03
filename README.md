@@ -23,18 +23,6 @@ AI Research Intern at XO, working on agent harnesses: the control loop, tool rou
 
 ---
 
-## 🛰️ What I work on
-
-**OpenClaw, a self-hosted AI assistant gateway.** A single local daemon that owns every channel connection and turns any model into an always-on assistant: **23+ channels** (WhatsApp, Telegram, Slack, Discord, Signal, iMessage), **35+ model providers**, tool sandboxing, and identity-first security.
-
-**XO Org.** A dual-mode workspace to manage and orchestrate AI agents: run a full multi-agent org or a single standalone agent from the same codebase.
-
-**XO Cowork.** A clean chat frontend and FastAPI bridge for talking to OpenClaw agents, with live SSE streaming and a file/artifact explorer.
-
-**XO Swarm API.** A multi-user PDF Q&A service (Agno + Qdrant) with per-user isolated knowledge bases.
-
----
-
 ## 🛠️ Tech stack
 
 **Languages**
