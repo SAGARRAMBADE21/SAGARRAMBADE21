@@ -11,7 +11,7 @@
 
 ---
 
-## 🧠 About
+## About
 
 <p align="justify">
 AI Research Intern at XO, working on agent harnesses: the control loop, tool routing, context management, and sandboxed environments that make an agent reliable in production. I build the backend behind it (Composio for integrations, Playwright for browser automation, SendGrid for delivery) and run agents in isolated sandboxes with Coder. I've worked hands-on with runtimes like OpenClaw and Hermes, and building at a startup showed me how agents behave outside a demo. I care most about harness design and what makes an agent genuinely autonomous.
@@ -19,7 +19,7 @@ AI Research Intern at XO, working on agent harnesses: the control loop, tool rou
 
 ---
 
-## 🛠️ Tech stack
+## Tech stack
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -48,7 +48,7 @@ AI Research Intern at XO, working on agent harnesses: the control loop, tool rou
 
 ---
 
-## 📬 Contact
+## Contact
 
 [![Email](https://img.shields.io/badge/starrboii26%40gmail.com-6bbe45?style=for-the-badge&logo=gmail&logoColor=0e0d0a)](mailto:starrboii26@gmail.com)
 <!-- email from your GitHub profile — change above if it's different -->
