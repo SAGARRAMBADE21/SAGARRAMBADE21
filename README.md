@@ -1,6 +1,6 @@
 <!-- ============================================================
      Profile README · SAGARRAMBADE21
-     banner:     ./assets/hero.svg
+     banner:     ./assets/hero.svg     (love.jpg still + name/tagline overlay, base64-embedded)
      background: ./assets/profile.svg  (Spider-Man wallpaper baked in behind the content)
      ============================================================ -->
 
