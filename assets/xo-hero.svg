@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif" role="img" aria-label="Sagar Rambade — Building self-hosted AI Agent Teams">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif" role="img" aria-label="Sagar Rambade, AI Research Intern researching agent harnesses and agentic AI">
   <defs>
     <!-- base background -->
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
@@ -112,17 +112,17 @@
       <circle cx="20" cy="17" r="4" fill="#83d63a">
         <animate attributeName="opacity" values="1;0.35;1" dur="2.4s" repeatCount="indefinite"/>
       </circle>
-      <text x="36" y="22" font-size="14" font-weight="500" fill="#a7c995" letter-spacing="0.2">Public Beta — building in the open</text>
+      <text x="36" y="22" font-size="14" font-weight="500" fill="#a7c995" letter-spacing="0.2">AI Research Intern @ XO</text>
     </g>
 
     <!-- headline -->
     <text x="62" y="240" font-size="68" font-weight="800" fill="#f2efe9" letter-spacing="-1.5">Sagar Rambade</text>
 
     <!-- accent line -->
-    <text x="64" y="300" font-size="38" font-weight="700" fill="#f2efe9" letter-spacing="-0.5">Building self-hosted <tspan fill="#6bbe45">AI Agent Teams</tspan></text>
+    <text x="64" y="300" font-size="38" font-weight="700" fill="#f2efe9" letter-spacing="-0.5">Researching <tspan fill="#6bbe45">agent harnesses</tspan> &amp; agentic AI</text>
 
     <!-- subhead -->
-    <text x="64" y="344" font-size="18" font-weight="400" fill="#8f9a82">Self-hosted, local-first AI agents — reachable on every channel you already use.</text>
+    <text x="64" y="344" font-size="18" font-weight="400" fill="#8f9a82">Control loops, tool routing, and sandboxed environments for reliable agents.</text>
 
     <!-- card border -->
     <rect x="0.5" y="0.5" width="1279" height="419" rx="23.5" fill="none" stroke="#1c2718" stroke-width="1"/>

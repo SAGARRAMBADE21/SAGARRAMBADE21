@@ -5,7 +5,7 @@
 
 <div align="center">
 
-![Sagar Rambade — Building self-hosted AI Agent Teams](assets/xo-hero.svg)
+![Sagar Rambade, AI Research Intern at XO](assets/xo-hero.svg)
 
 <br/>
 
@@ -25,14 +25,13 @@ AI Research Intern at XO, working on agent harnesses: the control loop, tool rou
 
 ## 🛰️ What I work on
 
-**OpenClaw — a self-hosted AI assistant gateway**
-A single local daemon that owns every channel connection and turns any model into an always-on assistant — **23+ channels** (WhatsApp, Telegram, Slack, Discord, Signal, iMessage…), **35+ model providers**, tool sandboxing, identity-first security, and a file-based agent workspace (`SOUL.md` / `AGENTS.md` / `HEARTBEAT.md`).
+**OpenClaw, a self-hosted AI assistant gateway.** A single local daemon that owns every channel connection and turns any model into an always-on assistant: **23+ channels** (WhatsApp, Telegram, Slack, Discord, Signal, iMessage), **35+ model providers**, tool sandboxing, and identity-first security.
 
-**XO Org** — a dual-mode workspace to manage and orchestrate AI agents: run a full multi-agent org or a single standalone agent from the same codebase.
+**XO Org.** A dual-mode workspace to manage and orchestrate AI agents: run a full multi-agent org or a single standalone agent from the same codebase.
 
-**XO Cowork** — a clean chat frontend + FastAPI bridge for talking to OpenClaw agents, with live SSE streaming and a file/artifact explorer.
+**XO Cowork.** A clean chat frontend and FastAPI bridge for talking to OpenClaw agents, with live SSE streaming and a file/artifact explorer.
 
-**XO Swarm API** — a multi-user PDF Q&A service (Agno + Qdrant) with per-user isolated knowledge bases.
+**XO Swarm API.** A multi-user PDF Q&A service (Agno + Qdrant) with per-user isolated knowledge bases.
 
 ---
 
