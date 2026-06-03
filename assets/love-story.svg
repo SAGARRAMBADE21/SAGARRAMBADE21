@@ -3,6 +3,9 @@
     <filter id="glow" x="-35%" y="-35%" width="170%" height="170%">
       <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#bfe3ff" flood-opacity="0.55"/>
     </filter>
+    <filter id="tsh" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2.4" flood-color="#1a0309" flood-opacity="0.95"/>
+    </filter>
   </defs>
 
   <!-- web threads + anchors -->
@@ -72,4 +75,6 @@
       </g>
     </g>
   </g>
+  <!-- karaoke lyric, synced to the heart pop -->
+  <text x="360" y="421" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="24" font-weight="600" font-style="italic" fill="#ffd1dc" filter="url(#tsh)" opacity="0">&#9834; Darling, you look perfect tonight &#9834;<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.46;0.52;0.86;1" dur="6s" repeatCount="indefinite"/></text>
 </svg>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Spider Love · a little story for someone perfect</title>
+<meta name="description" content="Spider-Gwen shoots a web at Miles, a heart pops, and 'Perfect' plays with synced lyrics." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sky-top:#a7d3ff; --sky-mid:#c9b8f3; --sky-low:#f7c6dd; --sky-bot:#ffd9c2;
+    --ink:#3b2a4d; --warm:#ffd58a; --rose:#ff5d8f; --heart:#ff3b6b;
+    --script:'Dancing Script', cursive;
+    --sans:'Quicksand', system-ui, -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:var(--sans); color:var(--ink);
+    overflow:hidden; background:#bcd8ff;
+    -webkit-tap-highlight-color:transparent;
+  }
+  /* ---------- sky ---------- */
+  #sky{position:fixed; inset:0; z-index:0;
+    background:
+      radial-gradient(120% 80% at 72% 14%, rgba(255,247,224,.85), rgba(255,247,224,0) 46%),
+      linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 42%, var(--sky-low) 74%, var(--sky-bot) 100%);
+  }
+  #sky::after{content:""; position:absolute; inset:0;
+    background:radial-gradient(130% 120% at 50% 42%, rgba(0,0,0,0) 58%, rgba(60,30,70,.28) 100%);}
+  .sun{position:fixed; right:16%; top:9%; width:140px; height:140px; border-radius:50%; z-index:0;
+    background:radial-gradient(circle, rgba(255,251,235,.95), rgba(255,228,180,.55) 45%, rgba(255,228,180,0) 70%);
+    filter:blur(2px); animation:sunpulse 7s ease-in-out infinite;}
+  @keyframes sunpulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+
+  /* ---------- clouds ---------- */
+  .clouds{position:fixed; inset:0; z-index:1; overflow:hidden; pointer-events:none}
+  .cloud{position:absolute; background:#fff; border-radius:50%;
+    filter:blur(6px); opacity:.85;
+    box-shadow:60px 12px 0 4px #fff, 130px 22px 0 -4px #fff, -55px 18px 0 -2px #fff;}
+  @keyframes drift{from{transform:translateX(-22vw)}to{transform:translateX(122vw)}}
+
+  /* ---------- skyline ---------- */
+  #skyline{position:fixed; left:0; right:0; bottom:0; z-index:2; pointer-events:none}
+  #skyline svg{display:block; width:100%; height:38vh}
+
+  /* ---------- petals / sparkles / hearts ---------- */
+  .layer{position:fixed; inset:0; z-index:6; pointer-events:none; overflow:hidden}
+  .petal{position:absolute; top:-6vh; will-change:transform,opacity;
+    border-radius:80% 0 80% 0; opacity:.9; animation:fall linear infinite;}
+  @keyframes fall{
+    0%{transform:translateY(-8vh) translateX(0) rotate(0deg); opacity:0}
+    8%{opacity:.95}
+    100%{transform:translateY(112vh) translateX(14vw) rotate(640deg); opacity:.5}}
+  .spark{position:absolute; width:6px; height:6px; border-radius:50%;
+    background:radial-gradient(circle,#fff,rgba(255,255,255,0) 70%);
+    animation:twinkle ease-in-out infinite;}
+  @keyframes twinkle{0%,100%{opacity:0; transform:scale(.4)}50%{opacity:1; transform:scale(1)}}
+  .fheart{position:absolute; bottom:-5vh; color:var(--rose); will-change:transform,opacity;
+    animation:rise linear infinite; filter:drop-shadow(0 2px 4px rgba(255,93,143,.5));}
+  @keyframes rise{
+    0%{transform:translateY(0) translateX(0) scale(.6) rotate(0); opacity:0}
+    12%{opacity:.95}
+    100%{transform:translateY(-112vh) translateX(6vw) scale(1.1) rotate(20deg); opacity:0}}
+
+  /* ---------- corner web ---------- */
+  #webDeco{position:fixed; top:-6px; left:-6px; width:210px; height:210px; z-index:5; opacity:.5; pointer-events:none}
+
+  /* ---------- title ---------- */
+  #title{position:fixed; top:18px; left:0; right:0; z-index:7; text-align:center;
+    font-family:var(--script); font-size:clamp(34px,6vw,64px); font-weight:700; color:#fff;
+    text-shadow:0 2px 10px rgba(255,93,143,.55), 0 1px 2px rgba(0,0,0,.25); pointer-events:none;}
+  #subtitle{display:block; font-family:var(--sans); font-size:clamp(11px,1.6vw,15px); font-weight:600;
+    letter-spacing:.18em; text-transform:uppercase; color:#5b3b6b; opacity:.8; margin-top:-4px}
+
+  /* ---------- scene ---------- */
+  #stage{position:relative; z-index:4; height:100%; display:flex; align-items:center; justify-content:center}
+  #scene{position:relative; width:min(96vw,920px); aspect-ratio:920/560; filter:drop-shadow(0 18px 30px rgba(60,30,70,.25))}
+  #scene svg{width:100%; height:100%; overflow:visible}
+  .glow{filter:drop-shadow(0 0 7px rgba(255,255,255,.55))}
+
+  /* idle sway is via SMIL; sequence via these classes */
+  #webline{stroke-dasharray:317; stroke-dashoffset:317; transition:stroke-dashoffset .62s cubic-bezier(.5,.05,.2,1)}
+  #scene.playing #webline{stroke-dashoffset:0}
+  #thwip{opacity:0; transform-box:fill-box; transform-origin:center}
+  #scene.playing #thwip{animation:thwip 1s ease both}
+  @keyframes thwip{0%{opacity:0;transform:scale(.6) rotate(-8deg)}18%{opacity:1;transform:scale(1.1) rotate(-8deg)}55%{opacity:1}100%{opacity:0;transform:scale(1) rotate(-8deg)}}
+  #milesWrap{transform-box:fill-box; transform-origin:center}
+  #scene.hit #milesWrap{animation:wiggle .55s ease both}
+  @keyframes wiggle{0%{transform:rotate(0)}25%{transform:rotate(-7deg)}50%{transform:rotate(6deg)}75%{transform:rotate(-3deg)}100%{transform:rotate(0)}}
+  #heart{opacity:0; transform-box:fill-box; transform-origin:center}
+  #scene.hit #heart{animation:heartpop .8s cubic-bezier(.2,1.3,.4,1) both, bob 2.6s ease-in-out 1s infinite}
+  @keyframes heartpop{0%{opacity:0;transform:scale(0)}55%{opacity:1;transform:scale(1.35)}75%{transform:scale(.92)}100%{opacity:1;transform:scale(1)}}
+  @keyframes bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-8px) scale(1.04)}}
+  #scene.finale #heart{animation:bloom 1.4s cubic-bezier(.2,1,.3,1) both}
+  @keyframes bloom{0%{transform:scale(1)}40%{transform:scale(2.3)}100%{transform:scale(2)}}
+
+  /* ---------- lyrics ---------- */
+  #lyrics{position:fixed; left:0; right:0; bottom:11vh; z-index:8; text-align:center; padding:0 16px;
+    min-height:2.2em; pointer-events:none}
+  #lyrics .line{display:inline-block; font-family:var(--script); font-weight:700;
+    font-size:clamp(26px,4.6vw,52px); color:#fff; line-height:1.15;
+    text-shadow:0 3px 14px rgba(120,40,90,.6), 0 1px 2px rgba(0,0,0,.3);
+    animation:lyricpop .6s cubic-bezier(.2,1.2,.3,1) both}
+  #lyrics .line.final{color:#fff; text-shadow:0 0 22px rgba(255,93,143,.9),0 3px 14px rgba(120,40,90,.7)}
+  @keyframes lyricpop{0%{opacity:0;transform:translateY(14px) scale(.86)}100%{opacity:1;transform:translateY(0) scale(1)}}
+
+  /* ---------- start overlay + controls ---------- */
+  #start{position:fixed; inset:0; z-index:20; display:flex; flex-direction:column; gap:10px;
+    align-items:center; justify-content:center; cursor:pointer;
+    background:radial-gradient(60% 50% at 50% 50%, rgba(40,20,55,.30), rgba(40,20,55,.55));
+    backdrop-filter:blur(2px); transition:opacity .6s ease}
+  #start .cta{font-family:var(--script); font-size:clamp(30px,6vw,58px); color:#fff;
+    text-shadow:0 2px 14px rgba(255,93,143,.7); animation:beat 1.4s ease-in-out infinite}
+  #start .hint{font-family:var(--sans); font-weight:600; letter-spacing:.12em; color:#ffe2ee; opacity:.92}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+  #start.gone{opacity:0; pointer-events:none}
+  #controls{position:fixed; right:14px; bottom:14px; z-index:21; display:flex; gap:8px}
+  #controls button{font-family:var(--sans); font-weight:700; font-size:13px; color:#5b3b6b;
+    background:rgba(255,255,255,.78); border:none; border-radius:999px; padding:8px 14px; cursor:pointer;
+    box-shadow:0 4px 12px rgba(120,40,90,.25); transition:transform .15s ease, background .15s}
+  #controls button:hover{transform:translateY(-1px); background:#fff}
+
+  /* ---------- credit ---------- */
+  #credit{position:fixed; left:12px; bottom:10px; z-index:21; font-size:11px; color:#5b3b6b; opacity:.7; font-weight:600}
+  #credit b{font-family:var(--script); font-size:15px; font-weight:700}
+
+  /* ---------- sync tool ---------- */
+  #sync{display:none; position:fixed; right:10px; top:10px; z-index:40; width:320px; max-width:92vw;
+    background:rgba(30,20,40,.92); color:#ffe; border-radius:14px; padding:14px; font-family:var(--sans); font-size:12.5px}
+  #sync h3{margin:0 0 6px; font-size:14px}
+  #sync textarea{width:100%; height:150px; margin-top:8px; font-family:ui-monospace,Consolas,monospace; font-size:11px;
+    border-radius:8px; border:none; padding:8px; background:#120c1c; color:#cfe}
+  #sync .row{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px}
+  #sync button{flex:1; min-width:90px; padding:7px; border:none; border-radius:8px; background:#ff5d8f; color:#fff; font-weight:700; cursor:pointer}
+  #sync .next{background:#2a2540; color:#ffd58a}
+  @media (max-width:560px){ #lyrics{bottom:13vh} }
+  @media (prefers-reduced-motion:reduce){ *{animation-duration:.001ms !important} }
+</style>
+</head>
+<body>
+  <div id="sky"></div>
+  <div class="sun"></div>
+  <div class="clouds" id="clouds"></div>
+  <div id="skyline"></div>
+
+  <svg id="webDeco" viewBox="0 0 200 200" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.2" aria-hidden="true">
+    <g stroke-linecap="round">
+      <line x1="0" y1="0" x2="190" y2="70"/><line x1="0" y1="0" x2="120" y2="120"/>
+      <line x1="0" y1="0" x2="70" y2="190"/><line x1="0" y1="0" x2="170" y2="20"/>
+      <line x1="0" y1="0" x2="20" y2="170"/>
+      <polyline points="34,12 30,30 12,34"/><polyline points="74,26 64,64 26,74"/>
+      <polyline points="116,40 100,100 40,116"/><polyline points="158,56 134,134 56,158"/>
+    </g>
+  </svg>
+
+  <h1 id="title">Spider Love<span id="subtitle">tap • web • heart • a song for you</span></h1>
+
+  <div class="layer" id="petals"></div>
+  <div class="layer" id="hearts"></div>
+  <div class="layer" id="sparkles"></div>
+
+  <div id="stage">
+    <div id="scene">
+      <svg viewBox="0 0 920 560" aria-label="Spider-Gwen and Miles">
+        <defs>
+          <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#5b2a55" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+
+        <!-- Gwen: gentle sway about her anchor -->
+        <g>
+          <animateTransform attributeName="transform" type="rotate" values="-2.6 220 26; 2.6 220 26; -2.6 220 26" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" dur="3.5s" repeatCount="indefinite"/>
+          <circle cx="220" cy="24" r="4.5" fill="#fff"/>
+          <line x1="220" y1="26" x2="223" y2="204" stroke="#fff" stroke-opacity="0.8" stroke-width="2.2" stroke-linecap="round"/>
+          <image class="glow" href="assets/gwen.png" x="108" y="200" width="230" height="226" preserveAspectRatio="xMidYMid meet"/>
+        </g>
+
+        <!-- Miles: sway (outer) + impact wiggle (inner) -->
+        <g>
+          <animateTransform attributeName="transform" type="rotate" values="-2.4 660 26; 2.4 660 26; -2.4 660 26" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1" dur="2.9s" repeatCount="indefinite"/>
+          <circle cx="660" cy="24" r="4.5" fill="#fff"/>
+          <line x1="660" y1="26" x2="654" y2="250" stroke="#fff" stroke-opacity="0.8" stroke-width="2.2" stroke-linecap="round"/>
+          <g id="milesWrap"><image class="glow" href="assets/miles.png" x="560" y="248" width="188" height="255" preserveAspectRatio="xMidYMid meet"/></g>
+        </g>
+
+        <!-- web shot -->
+        <line id="webline" x1="312" y1="330" x2="628" y2="358" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/>
+        <text id="thwip" x="318" y="250" font-family="Quicksand, sans-serif" font-size="30" font-weight="700" fill="#ff3b6b" transform="rotate(-8 318 250)">THWIP!</text>
+
+        <!-- heart pops above Miles -->
+        <g id="heart" transform="translate(654,196)">
+          <path d="M0,28 C -8,16 -24,8 -24,-6 C -24,-18 -10,-22 0,-12 C 10,-22 24,-18 24,-6 C 24,8 8,16 0,28 Z" fill="#ff3b6b" stroke="#d11f52" stroke-width="2" filter="url(#soft)"/>
+          <ellipse cx="-9" cy="-7" rx="4.5" ry="6.5" fill="#fff" fill-opacity="0.55" transform="rotate(-25 -9 -7)"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div id="lyrics"></div>
+
+  <div id="start">
+    <div class="cta">tap to begin&nbsp;♥</div>
+    <div class="hint">Gwen shoots a web · a heart pops · then a song</div>
+  </div>
+
+  <div id="controls">
+    <button id="btnReplay" title="Replay">↻ replay</button>
+    <button id="btnMute" title="Mute">🔊</button>
+  </div>
+  <div id="credit">made with <b>♥</b> · Sagar Rambade</div>
+
+  <div id="sync">
+    <h3>🎚️ Lyric sync tool</h3>
+    <div>Press <b>Play</b>, then tap <b>Space</b> exactly when each line should appear. <b>B</b>=set START, <b>N</b>=set END.</div>
+    <div class="row">
+      <button id="syncPlay">▶ Play from START</button>
+      <button id="syncReset" class="next">reset</button>
+    </div>
+    <textarea id="syncOut" readonly></textarea>
+    <div class="row"><button id="syncCopy">copy CONFIG</button></div>
+  </div>
+
+  <audio id="audio" preload="auto"></audio>
+
+<script>
+/* =================== CONFIG (tune with ?sync=1) =================== */
+const CONFIG = {
+  audio: 'assets/audio/song.mp3',
+  startAt: 0,        // play from the very start (the intro is only ~3s); set to 2.6 to begin right on line 1
+  endAt:   61.5,     // stop just after "...you're holding mine" (the chorus starts at 62.4)
+  fadeMs:  2600,
+  offset:  0,        // global lyric nudge in seconds — tweak live with [ (earlier) and ] (later), or ?offset=
+  // studio-accurate times (from lrclib; this mp3's 263s duration matches the reference exactly)
+  lyrics: [
+    { t:  2.98, text: 'I found a love for me' },
+    { t: 10.36, text: 'Darling, just dive right in and follow my lead' },
+    { t: 17.69, text: 'Well, I found a girl, beautiful and sweet' },
+    { t: 25.37, text: 'Oh, I never knew you were the someone waiting for me' },
+    { t: 31.85, text: '’Cause we were just kids when we fell in love' },
+    { t: 36.78, text: 'Not knowing what it was' },
+    { t: 40.74, text: 'I will not give you up this time' },
+    { t: 48.12, text: 'But darling, just kiss me slow,' },
+    { t: 51.92, text: 'Your heart is all I own' },
+    { t: 55.78, text: 'And in your eyes you’re holding mine' },
+  ],
+};
+
+/* =================== ambient scene =================== */
+const rnd=(a,b)=>a+Math.random()*(b-a);
+function mk(parent,cls){const d=document.createElement('div');d.className=cls;parent.appendChild(d);return d;}
+
+// clouds
+(function(){const c=document.getElementById('clouds');
+  for(let i=0;i<6;i++){const el=mk(c,'cloud');const s=rnd(40,90);
+    el.style.width=s+'px';el.style.height=(s*0.5)+'px';el.style.top=rnd(4,40)+'vh';
+    el.style.opacity=rnd(.55,.9);const dur=rnd(48,95);
+    el.style.animation=`drift ${dur}s linear infinite`;el.style.animationDelay=(-rnd(0,dur))+'s';
+    el.style.transform='scale('+rnd(.7,1.5)+')';}
+})();
+
+// skyline (SVG): back + front rows with lit windows
+(function(){
+  const W=1600,H=460;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg">`;
+  function row(baseY,color,minH,maxH,n,winOp){
+    let x=-20,s='';
+    while(x<W+40){
+      const bw=rnd(54,118), bh=rnd(minH,maxH), bx=x, by=H-bh;
+      s+=`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" fill="${color}"/>`;
+      // windows
+      for(let wy=by+12; wy<H-10; wy+=18){
+        for(let wx=bx+9; wx<bx+bw-10; wx+=15){
+          if(Math.random()<0.62){const lit=Math.random()<0.5;
+            s+=`<rect x="${wx}" y="${wy}" width="7" height="9" rx="1" fill="${lit?'#ffd58a':'#3a2f55'}" fill-opacity="${lit?winOp:winOp*0.5}"/>`;}
+        }
+      }
+      x+=bw+rnd(6,20);
+    }
+    return s;
+  }
+  svg+=`<g opacity="0.7" filter="blur(0.4px)">`+row(H, '#6b5a8f', 120, 230, 0, .55)+`</g>`;
+  svg+=row(H, '#2c2347', 180, 360, 0, .95);
+  svg+=`</svg>`;
+  document.getElementById('skyline').innerHTML=svg;
+})();
+
+// petals
+(function(){const p=document.getElementById('petals');const cols=['#ffd1e0','#ffc0cb','#ffe1ee','#fff','#ffb6d5'];
+  for(let i=0;i<26;i++){const el=mk(p,'petal');const s=rnd(8,16);
+    el.style.width=s+'px';el.style.height=s+'px';el.style.left=rnd(0,100)+'vw';
+    el.style.background=cols[i%cols.length];const dur=rnd(7,15);
+    el.style.animationDuration=dur+'s';el.style.animationDelay=(-rnd(0,dur))+'s';}
+})();
+// sparkles
+(function(){const p=document.getElementById('sparkles');
+  for(let i=0;i<34;i++){const el=mk(p,'spark');el.style.left=rnd(0,100)+'vw';el.style.top=rnd(0,92)+'vh';
+    const dur=rnd(1.6,4);el.style.animationDuration=dur+'s';el.style.animationDelay=(-rnd(0,dur))+'s';
+    const sc=rnd(.5,1.6);el.style.transform=`scale(${sc})`;}
+})();
+// floating hearts (continuous, gentle)
+(function(){const p=document.getElementById('hearts');
+  for(let i=0;i<10;i++){const el=mk(p,'fheart');el.textContent='♥';el.style.left=rnd(2,96)+'vw';
+    el.style.fontSize=rnd(12,26)+'px';const dur=rnd(9,18);
+    el.style.animationDuration=dur+'s';el.style.animationDelay=(-rnd(0,dur))+'s';
+    el.style.color=['#ff5d8f','#ff8fb3','#ff3b6b'][i%3];}
+})();
+
+/* =================== experience =================== */
+const audio=document.getElementById('audio');
+audio.src=CONFIG.audio;
+const scene=document.getElementById('scene');
+const lyricsEl=document.getElementById('lyrics');
+const startEl=document.getElementById('start');
+let started=false, ending=false, lastIdx=-2, raf=null;
+
+function startExperience(){
+  if(started) return; started=true; ending=false; lastIdx=-2;
+  startEl.classList.add('gone');
+  scene.classList.add('playing');                 // web draws + THWIP
+  setTimeout(()=>scene.classList.add('hit'), 640); // impact: wiggle + heart pop
+  setTimeout(beginSong, 1320);                     // heart popped -> song + lyrics
+}
+function beginSong(){
+  try{ audio.currentTime=CONFIG.startAt; }catch(e){}
+  audio.volume=1; audio.muted=muted;
+  audio.play().catch(()=>{});
+  cancelAnimationFrame(raf); loop();
+}
+function loop(){
+  raf=requestAnimationFrame(loop);
+  const ct=audio.currentTime, off=CONFIG.offset;
+  let idx=-1;
+  for(let i=0;i<CONFIG.lyrics.length;i++){ if(ct>=CONFIG.lyrics[i].t+off) idx=i; else break; }
+  if(idx!==lastIdx){ lastIdx=idx; showLyric(idx); }
+  if(!ending && ct>=CONFIG.endAt+off){ ending=true; finale(); }
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function showLyric(i){
+  if(i<0){ lyricsEl.innerHTML=''; return; }
+  lyricsEl.innerHTML='<span class="line">'+esc(CONFIG.lyrics[i].text)+'</span>';
+}
+function finale(){
+  cancelAnimationFrame(raf);
+  scene.classList.add('finale');
+  lyricsEl.innerHTML='<span class="line final">you’re holding mine&nbsp;&#10084;</span>';
+  burstHearts();
+  // fade audio out then stop
+  const v0=audio.volume, steps=34, dt=CONFIG.fadeMs/steps; let s=0;
+  const fi=setInterval(()=>{ s++; audio.volume=Math.max(0,v0*(1-s/steps));
+    if(s>=steps){ clearInterval(fi); audio.pause(); } }, dt);
+}
+function burstHearts(){
+  const p=document.getElementById('hearts');
+  for(let i=0;i<16;i++){const el=mk(p,'fheart');el.textContent='♥';
+    el.style.left=rnd(28,72)+'vw';el.style.bottom='42vh';el.style.fontSize=rnd(16,34)+'px';
+    const dur=rnd(3.4,6);el.style.animationDuration=dur+'s';
+    el.style.color=['#ff5d8f','#ff8fb3','#ff3b6b','#fff'][i%4];
+    setTimeout(()=>el.remove(), dur*1000+200);}
+}
+function reset(){
+  ending=false; started=false; lastIdx=-2; cancelAnimationFrame(raf);
+  scene.classList.remove('playing','hit','finale'); lyricsEl.innerHTML='';
+  audio.pause(); try{audio.currentTime=CONFIG.startAt;}catch(e){} audio.volume=1;
+  // force reflow so animations can re-run
+  void scene.offsetWidth;
+}
+
+// controls
+let muted=false;
+startEl.addEventListener('click', startExperience);
+document.getElementById('btnReplay').addEventListener('click', ()=>{ reset(); startExperience(); });
+const btnMute=document.getElementById('btnMute');
+btnMute.addEventListener('click', ()=>{ muted=!muted; audio.muted=muted; btnMute.textContent=muted?'🔇':'🔊'; });
+
+/* live lyric-offset nudge (in case the lyrics drift a touch on your exact file) */
+const _q = new URLSearchParams(location.search);
+if(_q.has('offset')) CONFIG.offset = parseFloat(_q.get('offset')) || 0;
+const offReadout = document.createElement('div');
+offReadout.style.cssText = 'position:fixed;left:50%;bottom:6vh;transform:translateX(-50%);z-index:30;background:rgba(30,20,40,.82);color:#ffe;font:600 13px/1 Quicksand,sans-serif;padding:8px 14px;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none';
+document.body.appendChild(offReadout);
+let _offTimer=null;
+function showOffset(){
+  offReadout.textContent = 'lyric offset '+(CONFIG.offset>=0?'+':'')+CONFIG.offset.toFixed(1)+'s   ·   [ earlier   ] later';
+  offReadout.style.opacity='1'; clearTimeout(_offTimer); _offTimer=setTimeout(()=>offReadout.style.opacity='0', 1900);
+}
+if(!_q.has('sync')){
+  window.addEventListener('keydown',(e)=>{
+    if(e.key===']'){ CONFIG.offset=Math.round((CONFIG.offset+0.1)*10)/10; showOffset(); }
+    else if(e.key==='['){ CONFIG.offset=Math.round((CONFIG.offset-0.1)*10)/10; showOffset(); }
+  });
+}
+
+/* =================== static preview (?demo=1) =================== */
+if(new URLSearchParams(location.search).has('demo')){
+  startEl.classList.add('gone');
+  scene.classList.add('playing','hit');
+  lyricsEl.innerHTML='<span class="line">'+esc(CONFIG.lyrics[0].text)+'</span>';
+}
+
+/* =================== sync tool (?sync=1) =================== */
+if(new URLSearchParams(location.search).has('sync')){
+  const panel=document.getElementById('sync'); panel.style.display='block';
+  startEl.classList.add('gone');
+  let caps=[], i=0, startT=CONFIG.startAt, endT=CONFIG.endAt;
+  const out=document.getElementById('syncOut');
+  function render(){
+    const lines=caps.map((c,k)=>`    { t: ${c.t.toFixed(2)}, text: ${JSON.stringify(c.text)} },`).join('\n');
+    out.value=`startAt: ${startT.toFixed(2)},\nendAt:   ${endT.toFixed(2)},\nlyrics: [\n${lines}\n],`;
+  }
+  CONFIG.lyrics.forEach(()=>{}); render();
+  document.getElementById('syncPlay').onclick=()=>{ try{audio.currentTime=startT;}catch(e){} audio.play(); };
+  document.getElementById('syncReset').onclick=()=>{ caps=[]; i=0; render(); };
+  document.getElementById('syncCopy').onclick=()=>{ out.select(); document.execCommand('copy'); };
+  window.addEventListener('keydown',(e)=>{
+    if(e.code==='Space'){ e.preventDefault();
+      const txt=CONFIG.lyrics[i] ? CONFIG.lyrics[i].text : ('line '+(i+1));
+      caps.push({t:audio.currentTime, text:txt}); i++; render();
+      showLyric(caps.length-1>=0 ? null : -1);
+      lyricsEl.innerHTML='<span class="line">'+esc(txt)+'</span>';
+    } else if(e.key==='b'||e.key==='B'){ startT=audio.currentTime; render(); }
+    else if(e.key==='n'||e.key==='N'){ endT=audio.currentTime; render(); }
+  });
+}
+</script>
+</body>
+</html>
