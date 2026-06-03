@@ -1,11 +1,11 @@
 <!-- ============================================================
      Profile README · SAGARRAMBADE21
-     Theme: XO / OpenClaw  ·  banner: ./assets/xo-hero.svg
+     banner: ./assets/hero.svg
      ============================================================ -->
 
 <div align="center">
 
-![Sagar Rambade, AI Research Intern at XO](assets/xo-hero.svg)
+![Sagar Rambade](assets/hero.svg)
 
 </div>
 
